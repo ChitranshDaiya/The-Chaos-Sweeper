@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Chaos Started</title>
+
+    <link rel="stylesheet" href="/cssStyle.css">
+    <script src="/jsJavaScript.js"></script>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #enterCode {
+            background-color:black;
+            padding: 30px 50px;
+            border: 2px solid rgb(0, 123, 255);
+            border-radius: 10px;
+            text-align: center;
+            width: 300px;
+        }
+        #enterCode p {
+            color: white;
+            margin-bottom: 20px;
+        }
+        .pinBox {
+            display: inline-block;
+            position: relative;
+            width: 100%;
+            height: 80px;
+            margin-bottom: 20px;
+            background-color: #333;
+            border-radius: 10px;
+            border: 2px solid rgb(0, 123, 255);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .pinEntry {
+            font-size: 2rem;
+            width: 80%;
+            text-align: center;
+            border: 0;
+            outline: none;
+            letter-spacing: 0.5rem;
+            color: #28a745;
+        }
+        .digit-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        .digit-buttons button {
+            width: 60px;
+            height: 60px;
+            font-size: 24px;
+            margin: 5px;
+            background-color: rgb(0, 123, 255);
+            color: white;
+            border-radius: 10px;
+        }
+        .submit-btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #28a745;
+            color: white;
+            border-radius: 5px;
+        }
+        p#result {
+            margin-top: 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div id="p1_2">
+        <p>
+            You stop in front of the door marked “E-9,” glaring at the padlocked keypad. You stare at the keypad, the cold metallic glare almost mocking you, as if daring you to outwit it.
+        </p>
+        <img src="media/DoorLock.png" alt="Door" class="centerImg">
+
+        <div class="thoughtDialogue">
+            A lock with a 4-digit code? Seriously? Who even uses those anymore? This feels like the kind of thing people do in movies to seem clever, but in reality, it’s just an overpriced obstacle. Still, it’s standing between me and whatever nonsense lies inside. Time to earn my detective badge.
+        </div>
+
+        <p>
+            Should you give it a try, or should you poke around Blunder’s office for some clues? Knowing that cheese-hoarding mad scientist, he probably left something obvious lying around.
+        </p>
+
+        I am smart enough to crack this stupid little code: <button onclick="showScreen('#p1_2', '#enterCode')">Enter the code</button>
+        <br>
+        I can find something in Blunder's office: <button onclick="showScreen('#p1_2', '#codeBlunderOffice')">Check the office</button>
+    </div>
+
+    <div id="codeBlunderOffice" style="display: none;">
+        <p>
+            You step into the chaotic lair of Dr. Blunder, the epitome of disorganized genius. Papers are scattered across the room like confetti after a particularly enthusiastic parade. The walls are lined with bookshelves that look like they’re about to collapse under the weight of ancient tomes and random trinkets. On the desk sits a steaming mug of coffee, with <span style="font-family: 'Comic Sans MS', cursive, sans-serif;">“#1 Genius”</span> written on it, and a half-eaten cheese sandwich that might be older than you. There’s a distinct smell of stale cheese mingled with burnt circuits, which you choose not to dwell on.
+        </p>
+        <div class="thoughtDialogue">
+            I’ve seen crime scenes with less clutter than this place. If there’s a clue in here, it’s going to take some serious detective work… or blind luck. Both are equally viable strategies.
+        </div>
+        <p>
+            Alright, where will you start from? The desk? The computer? That weird cheese bowl? Oh, and there’s the mirror—he’s always been weirdly possessive of that thing. Suspicious, isn't it?"
+        </p>
+
+        <button onclick="getClue(this, '3')">Check the computer.</button> 
+        <br>
+        <button onclick="getClue(this, '0')">Inspect the books.</button> 
+        <br>
+        <button onclick="getClue(this, '1')">Peek under the desk.</button> 
+        <br>
+        <button onclick="getClue(this, '0')">Examine the small safe.</button> 
+        <br>
+        <button onclick="getClue(this, '0')">Look behind the mirror.</button> 
+        <br>
+        <button onclick="getClue(this, '2')">Check the random pile of wires.</button>
+        <br> 
+        <button onclick="getClue(this, '4')">Look in the cheese bowl.</button> 
+        <br>
+        <button onclick="showScreen('#codeBlunderOffice', '#p1_2')">Return to E-9 Door.</button>
+    </div>
+
+    <div id="enterCode" style="display: none;">
+        <p>Enter the 4-digit code:</p>
+        <div class="pinBox">
+            <input class="pinEntry" id="pinInput" name="token" type="password" maxlength="4" autocomplete="off" oninput="checkLength()" onkeydown="handleKeyDown(event)">
+        </div>
+        <div class="digit-buttons">
+            <button onclick="enterDigit(1)">1</button>
+            <button onclick="enterDigit(2)">2</button>
+            <button onclick="enterDigit(3)">3</button>
+            <button onclick="enterDigit(4)">4</button>
+            <button onclick="enterDigit(5)">5</button>
+            <button onclick="enterDigit(6)">6</button>
+            <button onclick="enterDigit(7)">7</button>
+            <button onclick="enterDigit(8)">8</button>
+            <button onclick="enterDigit(9)">9</button>
+            <button onclick="enterDigit(0)">0</button>
+            <button onclick="deleteLastDigit()">⌫</button>
+        </div>
+        <button class="submit-btn" onclick="checkCode()">Submit</button>
+        <button class="submit-btn" onclick="showScreen('#enterCode', '#p1_2')">Return</button>
+        <p id="result"></p>
+    </div>
+
+    <div id="p2_2" style="display: none;">
+        <p>
+            You fumble with the lock and sneak into the room like a raccoon raiding a trash can. The sight that greets you is jaw dropping, a complete disaster! Wires are sprawled across the floor resembling giant jump ropes after a storm. In the center of the room stands a machine, a chunk of metal adorned with squiggly patterns on the screen reminiscent of a toddler's doodle but lacking any artistic flair. It seems the Doc didn't want you to stumble upon this mess much like a child hiding a shattered vase. With determination you roll up your sleeves and set out to restore order because if there's one thing you're skilled at it's tidying up.
+        </p>
+        <div class="thoughtDialogue">
+            The sight before me… Oh, where do I even begin? It’s a catastrophe. A crime against organization. Wires everywhere. Some tangled, some coiled, and some just flat-out sulking in corners. And in the middle of it all… there’s this machine. A mysterious chunk of metal with a screen full of doodles that even a toddler would be ashamed of.
+        </div>
+        <p>
+            You wrestle the wires into a tidy bundle and give the floor a thorough sweep. Finally your focus shifts to the machine. Those quirky symbols on the screen resemble a puzzle waiting to be unraveled, like a Rubik's cube but less cube shaped. All you need to do is crack the code. Who knows? You might stumble upon something fascinating like conjuring up a cheese sandwich out of thin air!
+        </p>
+        <p>
+            You step closer, a robotic voice chimes in:
+            <br>
+            "Warning. System unstable. Immediate user intervention required. Please follow the stabilization procedure or risk catastrophic meltdown. No pressure."        
+        </p>
+        <div class="thoughtDialogue">
+            Oh great, a puzzle. Because that’s exactly what I wanted after a day of sneaking around and breaking into rooms.
+        </div>
+        <button onclick="showScreen('#p2_2', '#p3_2')">Roll up your sleeves and get to work</button>
+    </div>
+
+    <div id="p3_2" style="display: none;">
+        <span id="step1" class="active">
+            <p>The screen shows four wires, each labeled with colors. This feels oddly like a reality TV challenge, except the stakes are much higher. And there’s no prize money. Which one will you choose?</p>
+            <input type="radio" name="wire" id="wireRed" onclick="selectOption(1, 'A')" required>Red wire <br>
+            <input type="radio" name="wire" id="wireYellow" onclick="selectOption(1, 'B')">Yellow wire <br>
+            <input type="radio" name="wire" id="wireBlue" onclick="selectOption(1, 'C')">Blue wire <br>
+            <input type="radio" name="wire" id="wireGreen" onclick="selectOption(1, 'D')">Green wire <br>
+        </span>
+    
+        <span id="step2" style="display: none;">
+            <p>Four buttons appear on the screen, each labeled with an ominous beep. Press one, maybe even expect confetti or an explosion.</p>
+            <input type="radio" name="button" id="button1" onclick="selectOption(2, 'A')" required>Button 1 <br>
+            <input type="radio" name="button" id="button2" onclick="selectOption(2, 'B')">Button 2 <br>
+            <input type="radio" name="button" id="button3" onclick="selectOption(2, 'C')">Button 3 <br>
+            <input type="radio" name="button" id="button4" onclick="selectOption(2, 'D')">Button 4 <br>
+        </span>
+    
+        <span id="step3" style="display: none;">
+            <p>A switch appears, and you feel like being a pilot in a cheesy action movie. Let’s hope flipping the wrong one doesn’t launch a missile.</p>
+            <input type="radio" name="switch" id="switchUp" onclick="selectOption(3, 'A')" required>Turn right <br>
+            <input type="radio" name="switch" id="switchDown" onclick="selectOption(3, 'B')">Turn left <br>
+            <input type="radio" name="switch" id="switchLeft" onclick="selectOption(3, 'C')">Turn downside <br>
+            <input type="radio" name="switch" id="switchRight" onclick="selectOption(3, 'D')">Turn upside <br>
+        </span>
+    
+        <span id="step4" style="display: none;">
+            <p>Symbols light up on the screen, like a cryptic emoji keyboard. Just hope you are not accidentally texting aliens.</p>
+            <input type="radio" name="symbol" id="symbolSun" onclick="selectOption(4, 'A')" required>The sun shape ☀️ <br>
+            <input type="radio" name="symbol" id="symbolMoon" onclick="selectOption(4, 'B')">The moon shape 🌕 <br>
+            <input type="radio" name="symbol" id="symbolStar" onclick="selectOption(4, 'C')">The star shape ⭐️ <br>
+            <input type="radio" name="symbol" id="symbolSaturn" onclick="selectOption(4, 'D')">The Saturn shape 🪐 <br>
+        </span>
+    
+        <span id="step5" style="display: none;">
+            <p>A list of final actions appears. Pulling a lever feels dramatic, but turning a knob seems safer. Decisions, decisions.</p>
+            <input type="radio" name="action" id="actionLever" onclick="selectOption(5, 'A')" required>Pull Lever <br>
+            <input type="radio" name="action" id="actionBar" onclick="selectOption(5, 'B')">Slide Bar <br>
+            <input type="radio" name="action" id="actionKnob" onclick="selectOption(5, 'C')">Turn Knob <br>
+            <input type="radio" name="action" id="actionPedal" onclick="selectOption(5, 'D')">Press Pedal <br>
+        </span>
+    
+        <button id="submitBtn" style="display: none;" onclick="checkCombination()">Submit</button>
+    </div>
+
+    <div id="whyCorrect" style="display: none;">
+        <p>
+            As you connect the final wire, the machine hums to life. Sparks fly dramatically, and the screen flashes an otherworldly golden light. You take a step back, shielding your eyes, when—suddenly—the god from earlier materializes in a swirl of smoke and theatrical flair.
+        </p>
+        <div class="godDialogue">
+            Lo! What manner of sorcery hath been wrought here? Dost mine eyes deceive me, or hath thou, verily, solved the puzzle I laid before thee?
+        </div>
+        <p>
+            The god peers at you, their glowing robes billowing despite the lack of wind. They stroke their ethereal beard (or adjust their celestial hairstyle) and let out a booming laugh.
+        </p>
+        <div class="godDialogue">
+            By mine holy glow, thou art a cunning mortal indeed! Forsooth, I did not expect thy humble brain to unravel the knotted skein of fate I so artfully weaved. This combination—aye, 'tis but one among a thousand and twenty-four paths! Yet here thou standeth, triumphant, like a cat who hath stolen cream.
+        </div>
+        <p>
+            The god waves their hand, and a golden trophy materializes in front of you. It gleams with divine splendor, inscribed with words written in overly elaborate calligraphy: <span style="font-family: 'Allura', cursive">“Thou Hast Done the Impossible, O Lucky Fool!”</span>
+        </p>
+        <div class="godDialogue">
+            Take this token of thine improbable wit, though I wager ‘twas more blind luck than true intellect. Still, who am I to question fate’s mysterious hand? Now, mortal, hie thee back whence thou camest and tarry not! For thou shalt not progress further without embracing failure anew. Nay, thy destiny is to err—‘tis the spice of thy mortal tale!
+        </div>
+        <p>
+            With a dramatic flourish, the god vanishes, leaving behind a faint scent of burnt toast and a lingering sense of both awe and annoyance.
+        </p>
+        <button onclick="showScreen('#whyCorrect', '#p3_2')">Retry the puzzle</button>
+    </div>
+
+    <div id="p4_2" style="display: none;">
+        
+    </div>
+</body>
+<script>
+    function getClue(button, value) {
+        var clue = '';
+        switch(value) {
+            case '1':
+                clue = 'Clue 1. The prime path I lead, symmetry I guard. Divide my worth, and triumph isn\'t hard.';
+                break;
+            case '2':
+                clue = 'Clue 2. From a genie\'s lamp to curses dark, fate and musketeers leave their mark.';
+                break;
+            case '3':
+                clue = 'Clue 3. Olympic rings abound, a hand\'s full band. Your senses stay sharp in a weekend-less land.';
+                break;
+            case '4':
+                clue = 'Clue 4. In races won, I\'m the ace you find, in binary’s realm, I lead the kind.';
+                break;
+            default:
+                clue = 'There\'s nothing here, should try somewhere else.';
+        }
+        button.textContent = clue;
+        button.disabled = true;
+    }
+    function enterDigit(digit) {
+        const pinInput = document.getElementById('pinInput');
+        if (pinInput.value.length < 4) {
+            pinInput.value += digit;
+        }
+    }
+    function deleteLastDigit() {
+        const pinInput = document.getElementById('pinInput');
+        pinInput.value = pinInput.value.slice(0, -1);
+    }
+    function checkCode() {
+        const code = document.getElementById('pinInput').value;
+        if (code === "2351") {
+            showScreen('#enterCode', '#p2_2')
+        } else {
+            document.getElementById('result').innerText = "Incorrect code. Please try again.";
+            document.getElementById('result').style.color = "#ff0000"; 
+        }
+    }
+    function checkLength() {
+        const pinInput = document.getElementById('pinInput');
+        if (pinInput.value.length > 4) {
+            pinInput.value = pinInput.value.slice(0, 4);
+        }
+    }
+    function handleKeyDown(event) {
+        const pinInput = document.getElementById('pinInput');
+        if (event.key === "Backspace" && pinInput.value.length > 0) {
+            deleteLastDigit();
+            event.preventDefault();
+        } else if (!/[0-9]/.test(event.key) && event.key !== "Backspace") {
+            event.preventDefault();
+        }
+    }
+
+    let selectedOptions = {};
+    function selectOption(step, option) {
+        selectedOptions[step] = option;
+        if (step < 5) {
+            document.getElementById(`step${step + 1}`).style.display = 'block';
+        } else {
+            document.getElementById('submitBtn').style.display = 'block';
+        }
+    }
+    function checkCombination() {
+        const correctCombination = ['C', 'D', 'B', 'C', 'A'];
+        let isCorrect = true;
+        for (let i = 1; i <= 5; i++) {
+            if (selectedOptions[i] !== correctCombination[i - 1]) {
+                isCorrect = false;
+                break;
+            }
+        }
+        if (isCorrect) {
+            showScreen('#p3_2', '#whyCorrect');
+        } else {
+            window.location.href = 'Chapter3.html';
+        }
+    }
+</script>
+</html>

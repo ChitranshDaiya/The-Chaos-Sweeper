@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House</title>
+
+    <link rel="stylesheet" href="/cssStyle.css">
+    <script src="/jsJavaScript.js">
+        
+    </script>
+    <style>
+        body, html{
+            min-height: 100vh;
+            min-width: 100vw;
+            margin: 0;
+            padding: 0;
+        }
+        .options{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .options span {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 10px;
+        }
+        .options img {
+            margin: 10px;
+            border: 3px solid;
+            position: relative;
+            width: 30vw;
+            height: 20vh;
+        }
+        div {
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+        }
+        #bath * {
+            display: flex;
+            justify-self: center;
+            align-self: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="hallway" style="background-image: url(media/Hallway.png); min-height: 100vh; min-width: 100vw;">
+        <div class="options">
+            <span>
+                <img src="media/Living Room.png" alt="Living Room" onclick="showScreen('#hallway', '#livingRoom')">
+                <p>Living Room</p>
+                <img src="media/Kitchen.png" alt="Kitchen" onclick="showScreen('#hallway', '#kitchen')">
+                <p>Kitchen</p>
+                <img src="media/Outside.png" class="outside" alt="Outside" onclick="window.location.href = 'Chapter4.html';" style="display: none;">
+                <p class="outside" style="display: none;">Go Outside</p>
+            </span>
+            <span>
+                <img src="media/Bedroom.png" alt="Bedroom" onclick="showScreen('#hallway', '#bedroom')">
+                <p>Bedroom</p>
+                <img src="media/Bathroom.png" alt="Bathroom" onclick="showScreen('#hallway', '#bathroom')">
+            <p>Bathroom</p>
+            </span>
+        </div>
+    </div>
+
+    <div id="livingRoom" style="display: none; background-image: url(media/Living\ Room.png); min-height: 100vh; min-width: 100vw;">
+        <p>You enter the living room. What will you do next?</p>
+        <br>
+        <div class="options">
+            <span>
+                <img src="media/TV.png" alt="T.V." onclick="showScreen('#livingRoom', '#watchTV')">
+                <p>Watch T.V.</p>
+            </span>
+            <span>
+                <img src="media/Hallway.png" alt="Hallway" onclick="showScreen('#livingRoom', '#hallway')">
+                <p>Hallway</p>
+            </span>
+        </div>
+    </div>
+
+    <div id="watchTV" style="display: none; background-image: url(media/Living\ Room.png); min-height: 100vh; min-width: 100vw;">
+        <p>
+            You turn on the TV, but instead of the regular news, there’s a puppet show being broadcast. The puppets seem to be aware of him watching, and they're not exactly complimentary.
+        </p>
+        <div class="puppet1Dialogue">
+            Look, he’s back! Wonder how long it’ll take him to figure out he's not in Kansas anymore. Or maybe he'll just click his heels together and hope for the best.
+        </div>
+        <div class="puppet2Dialogue">
+            Five bucks says he won't notice until he's knee-deep in spaghetti monsters. Or cheese. He does love cheese.
+        </div>
+        <button onclick="showScreen('#watchTV', '#livingRoom')">GO BACK</button>
+    </div>
+
+    <div id="kitchen" style="display: none; background-image: url(media/Kitchen.png); min-height: 100vh; min-width: 100vw;">
+        <p>You enter the kitchen. What will you do next?</p>
+        <div class="options">
+            <span>
+                <img src="media/Hallway.png" alt="Hallway" onclick="showScreen('#kitchen', '#hallway')">
+                <p>Hallway</p>
+            </span>
+        </div>
+    </div>
+
+    <div id="bedroom" style="display: none; background-image: url(media/Bedroom.png); min-height: 100vh; min-width: 100vw;">
+        <p>You enter your bedroom. What will you do next?</p>
+        <div class="options">
+            <span>
+                <img src="media/Sleep.png" alt="Sleep" onclick="showScreen('#bedroom', '#sleep')">
+                <p>Sleep</p>
+            </span>
+            <span>
+                <img src="media/Hallway.png" alt="Hallway" onclick="showScreen('#bedroom', '#hallway')">
+                <p>Hallway</p>
+            </span>
+        </div>
+    </div>
+
+    <div id="sleep" style="display: none; background-image: url(media/Bedroom.png); min-height: 100vh; min-width: 100vw;">
+        <video style="height: 90vh; width: 90vw;" controls autoplay>
+            <source src="media/Sleep.mp4" type="video/mp4">
+        </video>
+        <br>
+        <button onclick="showScreen('#sleep', '#bedroom'); document.querySelectorAll('.outside').forEach(el => el.style.display='block');">Wake Up</button>
+
+    </div>
+
+    <div id="bathroom" style="display: none; background-image: url(media/Bathroom.png); min-height: 100vh; min-width: 100vw;">
+        <p>You enter the bathroom. What will you do next?</p>
+        <div class="options">
+            <span>
+                <img src="media/Bath.png" alt="Bath" onclick="showScreen('#bathroom', '#bath')">
+                <br>
+                <p>Bath</p>
+            </span>
+            <span>
+                <img src="media/Hallway.png" alt="Hallway" onclick="showScreen('#bathroom', '#hallway')">
+                <br>
+                <p>Hallway</p>
+            </span>
+        </div>
+    </div>
+
+    <div id="bath" style="display: none; background-image: url(media/Bathroom.png); min-height: 100vh; min-width: 100vw;">
+        <img src="media/Bath.gif" alt="Bathing" style="border: 1px solid black;">
+        <br>
+        <button onclick="showScreen('#bath', '#bathroom')">GO BACK</button>
+    </div>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Starting the Game</title>
+
+    <link rel="stylesheet" href="cssStyle.css">
+    <script src="jsJavaScript.js"></script>       
+</head>
+<body>
+    <div class="chapterTitle">
+        <header>
+            <h2>Chapter 1 <br> The  Machine</h2>
+            <img src="media/The Chaos Sweeper.png" alt="Title Image" class="titleImg">
+            <br>
+            <button onclick="showScreen('.chapterTitle', '#p1_1')">Start</button>
+        </header>
+    </div>
+    <div id="p1_1" style="display: none;">
+        <p>
+            You stagger out of the most peculiar contraption. Your mind whirling like a washing machine on the spin cycle burdened with a set of heavy boots. A relentless throb of a headache crashes against your skull leaving you yearning for a button to make the pain vanish.
+        </p>
+        <img src="media/Machine.png" alt="The Machine" class="centerImg">
+        <p>
+            But seriously what in the world is this strange device? What on earth made you step inside? And the one question that truly makes your head spin more than attempting to crack a Rubiks cube...
+        </p>
+        <p>
+            Who in the great wide world are you?
+        </p>
+        
+        <span id="nameEntered">
+            <input type="text" name="pName" id="pName" value="Jerry">
+            <br>
+            <button type="submit" onclick="showScreen('#nameEntered', '#afterName')">Submit</button>
+        </span>
+
+        <span id="afterName" style="display: none;">
+            <img src="media/Janitor.png" alt="Janitor(You)" style="width: 20vw; height: 50vh; padding-inline: 25px; float: left;">
+            <p>
+                Oh yes, that's you. 
+                <span class="pName"></span>, the janitor at the super duper extra special laboratory of the one and only Dr. Blunder. The mad scientist with a hairstyle that resembles someone who stuck their finger in an electrical socket. You're a rather skinny guy with a mind that's even thinner. It's unfortunate that your curiosity occupies much more space than it should. And that curiosity? It's constantly landing you in situations, more tangled than a plate of spaghetti from last week. But hey, maybe this time you only messed up a little bit right? Perhaps you just broke the universe a tad. You sink into a chair nearby trying to recall what on earth transpired earlier. Was it something related to cheese? You really adore cheese.
+            </p>
+            
+            <button type="submit" onclick="showScreen('#p1_1', '#p2_1'); document.getElementById('afterName').style.display = 'none'">Continue</button>
+        </span>
+    </div>
+        
+    <div id="p2_1" style="display: none;">
+        <p>
+            The day began like any work day. You bounced into the lab of the mighty Dr. Blunder a brilliant scientist renowned for his eccentric experiments and questionable fashion choices. With your usual silly grin on your face you were all set to absorb some knowledge like a sponge even though you're not entirely sure what to do with all that knowledge once you've soaked it up.
+        </p>
+        <img src="media/Dr. Blunder.png" alt="Dr. Blunder" class="centerImg">
+        <p>
+            You spotted the Doc in his office, hunched over his latest doohickey, muttering to himself about "the secrets of the universe" and "breakfast cereal." You rapped on the door, then swung it open to give him a cheery hello, hoping he wouldn't mind that you spilled coffee on your shirt. Again.
+        </p>
+        <button type="submit" onclick="showScreen('#p2_1', '#p3_1')">Continue</button>
+    </div>
+
+    <div id="p3_1" style="display: none;">
+        <div class="playerDialogue">
+            Good morning, sir! Ready to learn some science stuff! And maybe how to work the coffee machine?
+        </div>
+
+        <div class="blunderDialogue">
+            Oh... You're here already. Good timing. I've got a super important meeting to get to. About... uh... important science things.
+        </div>
+        
+        <div class="playerDialogue">
+            What's the project du jour, sir? Can I lend a hand? I'm pretty handy with a broom.
+        </div>
+        
+        <div class="blunderDialogue">
+            It's hush hush. Top secret. I don't want any monkey business, so... Just keep your grubby paws off the machine in Room E 9. Don't even think about it.
+        </div>
+        
+        <p>
+            You nod like a bobblehead on a dashboard, but your curiosity is buzzing like a chainsaw in a beehive. Still, you've got other things on your mind, like what's for lunch and did you remember to set your DVR to record your favorite show?
+        </p>
+
+        <div class="thoughtDialogue" style="display: none;">
+            Can't go snooping now. Better wait till the Doc is out of sight and I've had a sandwich.
+        </div>
+
+        <button id="visitE9Deny" onclick="showScreen('#visitE9Deny', '.thoughtDialogue')">Visit E-9</button>
+        <br>
+        <button type="submit" onclick="showScreen('#p3_1', '#p4_1')">Do your work</button>
+    </div>
+
+    <div id="p4_1" style="display: none;">
+        <p>
+            You go back to doing your janitor duties, sweeping and mopping and pondering the whereabouts of all those missing socks. But every time you pass by Room E9 that curiosity begins to nibble at you like a mouse munching on a piece of cheddar. What could possibly be hidden inside? A massive wheel of cheese? A time machine? Or perhaps a contraption that brings your thoughts to life so you can conjure up some cheese with just a thought? You can't help but wonder.
+        </p>
+
+        <div class="thoughtDialogue">
+            Why is he so determined to keep me out? Is he hiding a secret cheese stash?
+        </div>
+
+        <p>
+            Before you know it you hear the sound of the Docs stylish shoes clicking down the hallway. He's making a getaway probably off to get a lab coat since the one he's wearing is splattered with mysterious stains.
+        </p>
+
+        <div class="playerDialogue">
+            Sir, are you buggering off?
+        </div>
+
+        <div class="blunderDialogue">
+            Absolutely, I'm heading to my meeting. You can wrap up early once you're finished with the cleaning. And do try not to break anything.
+        </div>
+
+        <p>
+            He turns on his heel pointing at you with a serious expression like a teacher catching you passing a note.
+        </p>
+
+        <div class="blunderDialogue">
+            Oh and don't forget to keep your distance from Room E 9! It's not a toy, kid.
+        </div>
+
+        <p>
+            He walks out leaving the door wide open for all kinds of mischief mayhem and cheesy adventures.
+        </p>
+
+        <div class="thoughtDialogue">
+            I really need to know what's behind that door. Is it something dangerous? Or perhaps something totally amazing, like a theme park?
+        </div>
+
+        <div class="godDialogue" style="display: none;">
+            Thou art either a fledgling in these sacred trials or thou dost seek to test the patience of the Almighty. I, the Divine, beseech thee, do not compel Me to command thee twice; henceforth, proceed to the alchemic chamber. Else, abandon this game forthwith.
+        </div>
+
+        <button id="EnterE9God" onclick="showScreen('#EnterE9God', '.godDialogue')">Don't enter E-9</button>
+        <br>
+        <a href="Chapter2.html">
+            <button onclick="">Let's Check E-9</button>
+        </a>
+    </div>
+</body>
+</html>

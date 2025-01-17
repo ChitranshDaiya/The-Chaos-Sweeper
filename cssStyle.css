@@ -107,6 +107,6 @@ button {
     font-size: 15px;
     background-color: #007bff;
     color: white;
-    border: 2px;
+    margin: 10px;
     cursor: pointer;
 }

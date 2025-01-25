@@ -67,13 +67,7 @@
             The old man hands you the glowing orb. It feels warm in your hand, like a cup of tea on a cold day. And you swear you hear a faint hum, like the universe itself is softly snoring.
         </p>
         <div class="oldManDialogue">
-            Take this, the Orb of Temporal Harmony! Thou must return this orb to the Altar of Time before the sun sets thrice, cause thereafter all hope shall be lost!
-        </div>
-        <div class="playerDialogue">
-            Yeah, okay. Cool glowy ball. Where’s this ‘Altar of Time’ thing? GPS coordinates? Address? Maybe a map?
-        </div>
-        <div class="oldManDialogue">
-            (Ignoring you) Beware, for many trials await thee! Perils beyond thy imagination lurk in the shadows, and foes from all eras seek to claim the orb for themselves!
+            Take this, the Orb of Temporal Harmony! Thou must return this orb to the Altar of Time before the sun sets thrice, cause thereafter all hope shall be lost! Beware, for many trials await thee! Perils beyond thy imagination lurk in the shadows, and foes from all eras seek to claim the orb for themselves!
         </div>
         <div class="playerDialogue">
             (Dryly) Got it. Avoid the bad guys, deliver the orb, save the world. Sounds simple enough. Do I at least get hazard pay for this?
@@ -91,13 +85,7 @@
     </div>
     <div id="p4_4" style="display: none;">
         <p>
-            The old man steps back, spreading his arms wide as the air around him begins to shimmer.
-        </p>
-        <div class="oldManDialogue">
-            Go forth, chosen one! To the Bridge of Evermore shalt thou travel. Seek the path, and let the orb guide thee!
-        </div>
-        <p>
-            With a final dramatic flourish, he vanishes in another puff of smoke. The glowing orb hums in your hands, almost as if it’s laughing at you.
+            The old man steps back, spreading his arms wide as the air around him begins to shimmer. With a final dramatic flourish, he vanishes in another puff of smoke. The glowing orb hums in your hands, almost as if it’s laughing at you.
         </p>
         <div class="thoughtDialogue">
             Great. So now I’m stuck saving the world with a flashlight that hums. And no map. Perfect.
@@ -109,7 +97,74 @@
             Well, it's not every day you get to save the world. Or at least, it's not every Tuesday. Let’s just hope I survive long enough to write a Yelp review for this whole mess. Maybe I'll put it on my CV. "Jerry, Janitor and Savior of the Universe."
         </div>
         <p>
-            You adjust your backpack and set off down the road, bracing yourself for whatever bizarre nonsense lies ahead.
+            Before you can retreat back into your house to Google “what to do when the universe collapses,” the old man from earlier materializes in front of you in a puff of smoke, startling you so much that you nearly drop your backpack.
+        </p>
+        <div class="playerDialogue">
+            Whoa! A little warning next time, Merlin. I almost had a heart attack.
+        </div>
+        <p>
+            The old man remain silent looking at you intently as if waiting for you to ask something.
+        </p>
+        <button onclick="showScreen('#p4_4', '#orbQuestion')">Ask about the Orb</button>
+        <button onclick="showScreen('#p4_4', '#taskQuestion')">Ask about the task</button>
+        <button onclick="showScreen('#p4_4', '#cheesyQuestion')">Ask a cheesy question</button>
+    </div>
+
+    <div id="orbQuestion" style="display: none;">
+        <div class="playerDialogue">
+            Hey, Gandalf, quick question: is this orb dishwasher safe? Because I’ve got to tell you, it’s not fitting in my cleaning schedule.
+        </div>
+        <div class="oldManDialogue">
+            Hush, mortal! That orb is the key to restoring balance to the cosmos! Handle it with reverence, for it holds the power of a thousand suns!
+        </div>
+        <p>
+            You glance at the orb in your bag. It’s glowing faintly and humming like a cat that swallowed a smartphone.
+        </p>
+        <div class="playerDialogue">
+            Right. Thousand suns. Got it. So, where exactly is this ‘Altar of Time’ thingy? And can I get there without walking through dragon territory? Because, call me crazy, but I left my dragon-repellent spray in my other pants.
+        </div>
+        <button id="orbbtn" onclick="showScreen('#orbbtn', '#p5_4')">Continue</button>
+    </div>
+
+    <div id="taskQuestion" style="display: none;">
+        <div class="playerDialogue">
+            Hey, Gandalf, quick question: Where do I need to go? Do you have any cordinates, some map or maybe a tracker device?
+        </div>
+        <div class="oldManDialogue">
+            Venture forth to the Bridge of Evermore, where thou shalt face thy first trial. Only then shalt thou learn the true power of the orb. But beware, for danger lurks 'round every corner!'
+        </div>
+        <p>
+            He waves his hand again, and the glowing orb in your backpack emits a faint hum. You glance at it, feeling less like a hero and more like a delivery person with a ticking time bomb.
+        </p>
+        <div class="playerDialogue">
+            Yeah, okay. Bridge of Evermore, got it. Let me just punch that into my GPS real quick. Oh, wait, my phone thinks I’m still at the grocery store. Guess I’ll just wing it.
+        </div>
+        <button id="taskbtn" onclick="showScreen('#taskbtn', '#p5_4')">Continue</button>
+    </div>
+    <div id="cheesyQuestion" style="display: none;">
+        <div class="playerDialogue">
+            Hey, Gandalf, quick question: Is there any cheese castle in my way? Where I can earn some magical cheese?
+        </div>
+        <div class="oldManDialogue">
+            Foolish one, dost thou mock the gravity of thine task?! The timelines hath begun to unravel further. Behold!
+        </div>
+        <p>
+            He gestures grandly at the street. You turn to see a castle turret suddenly sprouting from the top of a skyscraper, a laser cannon mounted on it for good measure. Across the street, a group of elves are arguing with an alien over who gets to use the charging station for their respective rides—a unicorn and a flying saucer.
+        </p>
+        <div class="thoughtDialogue">
+            Yup. Definitely not just me. The universe really did go and smash all its LEGO sets together.
+        </div>
+        <button id="cheesybtn" onclick="showScreen('#cheesybtn', '#p5_4')">Continue</button>
+    </div>
+    <div id="p5_4" style="display: none;">
+        <div class="playerDialogue">
+            Well, that was....very helpful? but hey can you atleast......
+        </div>
+        <div class="oldManDialogue">
+            Thou art not given permission to ask any more questions.
+        </div>
+        <p>
+            With another puff of smoke, the old man vanishes, leaving behind the distinct smell of cinnamon and regret.
         </p>
         <button onclick="window.location.href = 'Loading.html'">Begin your Journey</button>
     </div>

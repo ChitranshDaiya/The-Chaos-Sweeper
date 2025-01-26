@@ -238,7 +238,14 @@
     </div>
 
     <div id="p4_2" style="display: none;">
-        
+        <p>
+            Suddenly you here a voice from the machine.
+            <br>
+            "Well, well, well! Looks like someone’s not reading the fine print! Oops! Wrong choice! That red button was just begging to be pressed, wasn’t it? Initiating countdown... 3... 2... 1... BOOOOOM! Hope you brought marshmallows for the toast!"
+        </p>
+        <img src="/media/explosion.gif" alt="Exploding meme">
+        <br>
+        <button onclick="window.location.href = 'Chapter3.html';">Continue</button>
     </div>
 </body>
 <script>
@@ -319,7 +326,7 @@
         if (isCorrect) {
             showScreen('#p3_2', '#whyCorrect');
         } else {
-            window.location.href = 'Chapter3.html';
+            showScreen('#p3_2', '#p4_2');
         }
     }
 </script>

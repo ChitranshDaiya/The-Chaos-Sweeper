@@ -74,6 +74,16 @@
             margin-top: 20px;
             font-size: 16px;
         }
+        input {
+            background: transparent;
+            border: 2px solid midnightblue;
+        }
+        body, html {
+            background-image: linear-gradient(#acf9ff, rgb(243, 135, 135)) ;
+            min-height: 100vh;
+            font-size: x-large;
+            text-indent: 35px;
+        }
     </style>
 </head>
 <body>
@@ -251,23 +261,30 @@
 <script>
     function getClue(button, value) {
         var clue = '';
+        var color = '';
         switch(value) {
             case '1':
                 clue = 'Clue 1. The prime path I lead, symmetry I guard. Divide my worth, and triumph isn\'t hard.';
+                color = 'green';
                 break;
             case '2':
                 clue = 'Clue 2. From a genie\'s lamp to curses dark, fate and musketeers leave their mark.';
+                color = 'green';
                 break;
             case '3':
                 clue = 'Clue 3. Olympic rings abound, a hand\'s full band. Your senses stay sharp in a weekend-less land.';
+                color = 'green';
                 break;
             case '4':
                 clue = 'Clue 4. In races won, I\'m the ace you find, in binary’s realm, I lead the kind.';
+                color = 'green';
                 break;
             default:
                 clue = 'There\'s nothing here, should try somewhere else.';
+                color = 'red';
         }
         button.textContent = clue;
+        button.style.backgroundColor = color;
         button.disabled = true;
     }
     function enterDigit(digit) {

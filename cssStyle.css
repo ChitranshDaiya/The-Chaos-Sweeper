@@ -1,16 +1,6 @@
-body, html {
-    background-image: linear-gradient(#acf9ff, rgb(243, 135, 135)) ;
-    min-height: 100vh;
-    font-size: x-large;
-    text-indent: 35px;
-}
 .centerImg {
     width: 40vw;
     margin-left: 30vw;
-}
-input {
-    background: transparent;
-    border: 2px solid midnightblue;
 }
 .topDialogue img {
     max-height: 70px;

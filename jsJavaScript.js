@@ -1,8 +1,27 @@
-function showScreen(currentScreen, newScreen) {
-    document.querySelector(currentScreen).style.display = 'none';
-    document.querySelector(newScreen).style.display = 'block';
-    document.querySelector(newScreen).scrollIntoView({behavior: 'smooth', block: 'start'});
+window.onload = function() {
     insertName();
+
+    var paragraphs = document.querySelectorAll('p:not(.thoughtDialogue p, .playerDialogue p, .blunderDialogue p, .godDialogue p, .oldManDialogue p, .puppet1Dialogue p, .puppet1Dialogue p)');
+    paragraphs.forEach(function(paragraph) { 
+        paragraph.classList.add('storyText');
+    });
+
+    function applyDialogueStyling(dialogueClass, imagePath, label) {
+        var dialogues = document.querySelectorAll(dialogueClass);
+        dialogues.forEach(function(dialogue) { 
+            var text = dialogue.innerHTML.trim();
+            dialogue.innerHTML = `<span class="topDialogue"><img src="${imagePath}" alt="${label}"><p>${label}</p></span><p>${text}</p>`;
+        });
+    }
+
+    // Applying dialogue styling to each class
+    applyDialogueStyling('.blunderDialogue', 'media/Dr. Blunder.png', 'Dr. Blunder');
+    applyDialogueStyling('.thoughtDialogue', 'media/Thoughts.png', 'The Mighty Janitor (Thought)');
+    applyDialogueStyling('.godDialogue', 'media/God.png', 'The Almighty');
+    applyDialogueStyling('.oldManDialogue', 'media/Old Man.png', 'The Old Man');
+    applyDialogueStyling('.playerDialogue', 'media/Janitor.png', 'Player');
+    applyDialogueStyling('.puppet1Dialogue', 'media/Puppet1.png', 'Puppet 1');
+    applyDialogueStyling('.puppet2Dialogue', 'media/Puppet2.png', 'Puppet 2');
 };
 
 function insertName() {
@@ -17,61 +36,9 @@ function insertName() {
     });
 }
 
-document.addEventListener('DOMContentLoaded', insertName);
-
-
-document.addEventListener("DOMContentLoaded", function() { 
-    var dialogues = document.querySelectorAll('.thoughtDialogue');
-    dialogues.forEach(function(dialogue) { 
-        var text = dialogue.innerHTML.trim();
-        dialogue.innerHTML = ` <span class="topDialogue"> <img src="media/Thoughts.png" alt="The Mighty Janitor"> <p>The Mighty Janitor (Thought)</p> </span> <p>${text}</p> `;
-    }); 
-});
-
-document.addEventListener("DOMContentLoaded", function() { 
-    var dialogues = document.querySelectorAll('.blunderDialogue');
-    dialogues.forEach(function(dialogue) { 
-        var text = dialogue.innerHTML.trim();
-        dialogue.innerHTML = ` <span class="topDialogue"> <img src="media/Dr. Blunder.png" alt="Dr. Blunder"> <p>Dr. Blunder</p> </span> <p>${text}</p> `;
-    }); 
-});
-
-document.addEventListener("DOMContentLoaded", function() { 
-    var dialogues = document.querySelectorAll('.godDialogue');
-    dialogues.forEach(function(dialogue) { 
-        var text = dialogue.innerHTML.trim();
-        dialogue.innerHTML = ` <span class="topDialogue"> <img src="media/God.png" alt="God"> <p>The Almighty</p> </span> <p>${text}</p> `;
-    }); 
-});
-
-document.addEventListener("DOMContentLoaded", function() { 
-    var dialogues = document.querySelectorAll('.oldManDialogue');
-    dialogues.forEach(function(dialogue) { 
-        var text = dialogue.innerHTML.trim();
-        dialogue.innerHTML = ` <span class="topDialogue"> <img src="media/Old Man.png" alt="Old Man"> <p>The Old Man</p> </span> <p>${text}</p> `;
-    }); 
-});
-
-document.addEventListener("DOMContentLoaded", function() {
-    var dialogues = document.querySelectorAll('.playerDialogue');
-    dialogues.forEach(function(dialogue) { 
-        var text = dialogue.innerHTML.trim(); 
-        dialogue.innerHTML = ` <span class="topDialogue"> <img src="media/Janitor.png" alt="Janitor"> <span class="pName"></span> </span> <p>${text}</p> `; 
-    }); 
-});
-
-document.addEventListener("DOMContentLoaded", function() { 
-    var dialogues = document.querySelectorAll('.puppet1Dialogue');
-    dialogues.forEach(function(dialogue) { 
-        var text = dialogue.innerHTML.trim();
-        dialogue.innerHTML = ` <span class="topDialogue"> <img src="media/Puppet1.png" alt="Puppet 1"> <p>Puppet 1</p> </span> <p>${text}</p> `;
-    }); 
-});
-
-document.addEventListener("DOMContentLoaded", function() { 
-    var dialogues = document.querySelectorAll('.puppet2Dialogue');
-    dialogues.forEach(function(dialogue) { 
-        var text = dialogue.innerHTML.trim();
-        dialogue.innerHTML = ` <span class="topDialogue"> <img src="media/Puppet2.png" alt="Puppet 2"> <p>Puppet 2</p> </span> <p>${text}</p> `;
-    }); 
-});
+function showScreen(currentScreen, newScreen) {
+    document.querySelector(currentScreen).style.display = 'none';
+    document.querySelector(newScreen).style.display = 'block';
+    document.querySelector(newScreen).scrollIntoView({behavior: 'smooth', block: 'start'});
+    insertName();
+};

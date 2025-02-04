@@ -19,7 +19,7 @@ window.onload = function() {
     applyDialogueStyling('.thoughtDialogue', 'media/Thoughts.png', 'The Mighty Janitor (Thought)');
     applyDialogueStyling('.godDialogue', 'media/God.png', 'The Almighty');
     applyDialogueStyling('.oldManDialogue', 'media/Old Man.png', 'The Old Man');
-    applyDialogueStyling('.playerDialogue', 'media/Janitor.png', 'Player');
+    applyDialogueStyling('.playerDialogue', 'media/Janitor.png', `<span class = 'pName'></span>`);
     applyDialogueStyling('.puppet1Dialogue', 'media/Puppet1.png', 'Puppet 1');
     applyDialogueStyling('.puppet2Dialogue', 'media/Puppet2.png', 'Puppet 2');
 };

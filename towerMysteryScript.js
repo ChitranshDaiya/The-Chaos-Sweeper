@@ -34,8 +34,7 @@ function spin() {
             currentIndex = (currentIndex + 1) % diceNumbers.length;
             requestAnimationFrame(animateSpin);
         } else {
-            // const randomIndex = Math.floor(Math.random() * diceNumbers.length);
-            const randomIndex = 0;
+            const randomIndex = Math.floor(Math.random() * diceNumbers.length);
             diceNumbers.forEach(cell => cell.classList.remove('glow'));
             diceNumbers[randomIndex].classList.add('glow');
             moveButtonToTower(parseInt(diceNumbers[randomIndex].innerText));

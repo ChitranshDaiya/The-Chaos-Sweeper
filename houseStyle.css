@@ -1,0 +1,46 @@
+body, html{
+    min-height: 100vh;
+    min-width: 100vw;
+    margin: 0;
+    padding: 0;
+    font-size: x-large;
+    text-indent: 35px;
+}
+.options{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.options span {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+}
+.options img {
+    margin: 10px;
+    border: 3px solid;
+    position: relative;
+    width: 30vw;
+    height: 20vh;
+}
+div {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+#bath * {
+    display: flex;
+    justify-self: center;
+    align-self: center;
+}
+button {
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 15px;
+    background-color: #007bff;
+    color: white;
+    margin: 10px;
+    cursor: pointer;
+}

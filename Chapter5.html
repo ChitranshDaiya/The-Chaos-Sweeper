@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter3</title>
+    
+    <script src="basicScript.js"></script>
+    <script src="sidebarScript.js"></script>
+    <link rel="stylesheet" href="dialogueStyle.css">
+    <link rel="stylesheet" href="secondStyle.css">
+    <link rel="stylesheet" href="sidebarStyle.css">
+    <style>
+        body, html {
+            background-image: url('media/Outside.png');
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar" id="mySidebar">
+        <!-- <button id="back-btn">&larr;</button>
+        <button id="next-btn">&rarr;</button> -->
+        <button id="close-btn" onclick="closeSidebar()">&langle;</button>
+        <br>
+        <img src="media/chaosLogo.png" alt="The Chaos Sweeper" style="height: 100px; width: 200px;">
+        <hr>
+        <p><b>Time: </b><span id="time"></span></p>
+        <p><b>Energy: </b><span id="energy"></span></p>
+        <p><b>Gold Coin: </b><span id="moneyPast"></span></p>
+        <p><b>Cash: </b><span id="moneyPresent"></span></p>
+        <p><b>Bit Coins: </b><span id="moneyFuture"></span></p>
+        <p><b>Strength: </b><span id="strength"></span></p>
+        <p><b>Intelligence: </b><span id="intelligence"></span></p>
+    </div>
+    <button id="open-btn" onclick="openSidebar()">&rangle;</button>
+
+    <div id="pathSelect">
+        <p>
+            You stand on the bustling street, the vibrant chaos of the merged realities swirling around you. A hovercar whizzes by, narrowly missing a flock of pigeons. A grumpy-looking goblin attempts to haggle with a vendor selling futuristic gadgets. It's a scene straight out of a fever dream, and you're smack dab in the middle of it.
+        </p>
+        <div class="thoughtDialogue">
+            Right, so, where do I even begin? The old man was about as helpful as a sieve in a rainstorm. No map, no directions, just vague warnings about 'trials' and 'perils.' Typical.
+        </div>
+        <p>
+            You glance at the glowing orb in your backpack. It hums softly, as if mocking your confusion.
+        </p>
+        <div class="playerDialogue">
+            Alright, glowy ball of wisdom. What’s the deal here? Are you a world-saving artifact or just a fancy paperweight?
+        </div>
+        <p>
+            The orb doesn’t answer (of course), but the melody it emits gets slightly faster. It’s like it’s saying, “Move it, slowpoke!”
+        </p>
+        <div class="playerDialogue">
+            Fine, fine! I’ll save the world or whatever. But where do I even start? This road’s giving me ‘horror movie first victim’ vibes.
+        </div>
+        <p>
+            You decide to start exploring, hoping to find some clues. As you walk down the street, you come to a crossroads. Three paths diverge before you, each leading to a different and equally bizarre destination. What will you choose?
+        </p>
+        <button onclick="navigate('clockworkLane.html', this, {time: 420, energy: 40})">Walk down the Clockwork Lane <br>(Time: 7hrs, Money: none, Energy: 40)</button>
+        <br>
+        <button onclick="navigate('highway.html', this, {time: 720, energy: 50, moneyPresent: 400})">Book a cab to the Bridge of Evermore<br> (Time: 12hrs, Money:400 cash, Energy: 50)</button>
+        <br>
+        <button onclick="navigate('mysticForest.html', this, {time: 180, energy: 20, moneyPast: 50})">Get a horse ride through the Mystic Forest<br>(Time: 3hrs, Money: 50 gold coins, Energy: 20)</button>
+    </div>
+</body>
+</html>

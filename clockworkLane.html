@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Clockwork Lane</title>
+    
+    <script src="basicScript.js"></script>
+    <script src="sidebarScript.js"></script>
+    <link rel="stylesheet" href="dialogueStyle.css">
+    <link rel="stylesheet" href="secondStyle.css">
+    <link rel="stylesheet" href="sidebarStyle.css">
+    <link rel="stylesheet" href="titleStyle.css">
+    <style>
+        body, html {
+            background-image: url('media/gears.png');
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar" id="mySidebar">
+        <!-- <button id="back-btn">&larr;</button>
+        <button id="next-btn">&rarr;</button> -->
+        <button id="close-btn" onclick="closeSidebar()">&langle;</button>
+        <br>
+        <img src="media/chaosLogo.png" alt="The Chaos Sweeper" style="height: 100px; width: 200px;">
+        <hr>
+        <p><b>Time: </b><span id="time"></span></p>
+        <p><b>Energy: </b><span id="energy"></span></p>
+        <p><b>Gold Coin: </b><span id="moneyPast"></span></p>
+        <p><b>Cash: </b><span id="moneyPresent"></span></p>
+        <p><b>Bit Coins: </b><span id="moneyFuture"></span></p>
+        <p><b>Strength: </b><span id="strength"></span></p>
+        <p><b>Intelligence: </b><span id="intelligence"></span></p>
+    </div>
+    <button id="open-btn" onclick="openSidebar()">&rangle;</button>
+
+    <div class="chapterTitle">
+        <header>
+            <h2>New Chapter <br> The Clockwork Lane</h2>
+            <img src="media/The Chaos Sweeper.png" alt="Title Image" class="titleImg">
+            <br>
+            <button onclick="showScreen('.chapterTitle', '#p1_cL')">Start</button>
+        </header>
+    </div>
+
+    <div id="p1_cL" style="display: none;">
+        <p>
+            You step onto Clockwork Lane, and the world around you transforms. Clockwork Lane isn't just a road, it's a fever dream of gears and springs. Trees tick instead of rustling. Birds chirp in a perfect mechanical rhythm. The ground beneath you? Smooth metal, because apparently, roads made of normal things are outdated. Even the animals seem to be made of intricately woven metal, their movements a mesmerizing blend of clockwork precision and organic grace.
+        </p>
+        <div class="playerDialogue">
+            (Sarcastically) Wow, this seems to be really fun. Walking through a malfunctioning grandfather clock to save the world. Talk about a vacation.
+        </div>
+        <p>
+            You step forward, your shoes making a strangely satisfying clink with each step. The air is thick with the scent of oil and polished brass. Then, something catches your eye—a peculiar shop wedged between two massive, gear-shaped sunflowers.
+        </p>
+        <img src="media/timeMaster.jpg" alt="Time Master" class="centerImg">
+        <p>
+            The shop is unlike anything you’ve ever seen—entirely constructed from interlocking gears and springs. A thing sits behind the counter, shifting slightly with the soft whirr of hidden mechanisms. Part bird, part clock, and entirely unsettling, it peers at you through glowing, mechanical eyes. It seems to be a shopkeeper, of sorts.
+        </p>
+        <div class="timeMasterDialogue">
+            (gruffly) Ah, fresh meat. I mean, a new traveler. Interesting.
+        </div>
+        <div class="playerDialogue">
+            Yes, I am. The one who created this world and now I'm on my way to save it. But what about you? Are you the local welcome committee, or…?
+        </div>
+        <div class="timeMasterDialogue">
+            (chuckles) Man, you're funny. But before you go any further, you must play a game of the Clocktower Mysteries with me. That's the rule here.
+        </div>
+        <div class="playerDialogue">
+            Oh, come on! This is how you welcome visitors? First, a glowing artifact, now a game? Can’t I just get a tutorial level or something? I'm already late for a cosmic emergency!
+        </div>
+        <div class="timeMasterDialogue">
+            Sure! Here's your tutorial: First visit? First game. No exceptions.
+        </div>
+        <button id="addDialogue" onclick="showScreen('#addDialogue', '#p2_cL')">Continue</button>
+    </div>
+
+    <div id="p2_cL" style="display: none;">
+        <div class="playerDialogue">
+            I hate this place already.
+        </div>
+        <div class="timeMasterDialogue">
+            (Chuckles) Well, you have already walked this far, and you won't go back now, will you? It would feel like ages. So hell yes, you are going to play this game.
+        </div>
+        <div class="thoughtDialogue">
+            Well, I have no choice but to play. Then why not play with high spirits? And what a little game could possibly hurt? Besides, I could use a break from all this… clockwork chaos.
+        </div>
+        <div class="playerDialogue">
+            Alright, alright. Tell me what this game is all about, Dr. Strange.
+        </div>
+        <div class="timeMasterDialogue">
+            (frowns) Dr. Strange? Who's Dr. Strange? I'm the Time Master, guardian of the Clockwork Lane!
+        </div>
+        <div class="playerDialogue">
+            Right, right. My apologies, Time Master. So, what's the game?
+        </div>
+        <div class="timeMasterDialogue">
+            (ignoring you) The Clocktower Maze awaits! It’s played right here, along this very lane. 15 segments. Each one holds a challenge… or a reward.
+        </div>
+        <p>
+            He gestures to a strange contraption—a beautifully crafted gear with intricate patterns carved into its surface.
+        </p>
+        <div class="timeMasterDialogue">
+            (dramatically) You’ll spin this gear. Wherever it lands, that’s where we move. Think of it as fate. Or extremely complicated dice.
+            <br>
+            Now then. Are you ready?
+        </div>
+        <button onclick="changeFile('towerMystery.html')">Let's Play</button>
+    </div>
+    
+    <div id="p3_cL" style="display: none;">
+        <p>
+            After what feels like an eternity (though in reality, only a few minutes have passed), you finally reach the top of the Clocktower. The Time Master, gears whirring contentedly, turns to you with a mischievous grin.
+        </p>
+        <div class="timeMasterDialogue">
+            That was some fun game, wasn't it?
+        </div>
+        <div class="playerDialogue">
+            Well, I must admit, it wasn't as bad as I initially thought.
+        </div>
+        <div class="timeMasterDialogue">
+            And hey, since you did a good job in the game, I will give you this.
+        </div>
+        <p>
+            The Time Master extends a metallic hand, revealing a small, intricately crafted map of Clockwork Lane. It's a marvel of miniature engineering, with tiny gears depicting the various landmarks and pathways.
+        </p>
+        <div class="playerDialogue">
+            Now that's a useful prize! This might come in pretty handy.
+        </div>
+        <div class="playerDialogue">
+            Thank you, Time Master. This is very helpful.
+        </div>
+        <div class="timeMasterDialogue">
+            You're welcome, young one. You know, these machines have no manners. Never a 'thank you' for a well-played game.
+        </div>
+        <div class="playerDialogue">
+            They sure don't. They're probably too busy winding themselves up.
+        </div>
+        <div class="timeMasterDialogue">
+            (Chuckles) Indeed. Now, go forth, adventurer! Explore the wonders of Clockwork Lane. But beware, danger lurks around every corner.
+        </div>
+        <p>
+            With that, the Time Master gestures towards the path ahead, and you continue your journey down Clockwork Lane, the map clutched tightly in your hand.
+        </p>
+        <button onclick="changeFile('Loading.html')">Continue</button>
+    </div>
+</body>
+<script>
+    (function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const section = urlParams.get('section');
+
+        // Hide all sections initially
+        document.getElementById('p1_cL').style.display = 'none';
+        document.getElementById('p2_cL').style.display = 'none';
+        document.getElementById('p3_cL').style.display = 'none';
+
+        // Show the specified section if it exists
+        if (section) {
+            const targetSection = document.getElementById(section);
+            if (targetSection) {
+                targetSection.style.display = 'block';
+                document.querySelector('.chapterTitle').style.display = 'none';
+            }
+        }
+    })();
+</script>
+
+</html>

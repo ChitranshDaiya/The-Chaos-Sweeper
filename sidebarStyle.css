@@ -1,0 +1,38 @@
+#mySidebar{
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: 0px;
+    background-color: #111;
+    padding-top: 70px;
+    display: none;
+}
+#mySidebar p {
+    padding: 10px 15px;
+    font-size: 18px;
+    color: white;
+}
+#mySidebar p:hover {
+    background-color: #575757;
+}
+#mySidebar button, #open-btn {
+    cursor: pointer;
+    background-color: blue;
+    color: white;
+    padding: 3px 10px;
+    position: fixed;
+    top: 20px;
+}
+#mySidebar img {
+    margin-left: 25px;
+}
+#next-btn{
+    left: 100px;
+}
+#open-btn{
+    left: 2px;
+}
+#close-btn{
+    left: 200px;
+}

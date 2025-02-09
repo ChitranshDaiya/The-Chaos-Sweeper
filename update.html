@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Instruction</title>
+
+    <style>
+        body {
+            margin: 0;
+            overflow: auto;
+            background: url('media/orb.gif') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .message {
+            opacity: 0;
+            animation: fadeIn 8s forwards;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 10px;
+            font-size: 1.5em;
+            max-width: 80%;
+        }
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        .continue-btn {
+            display: none;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .message {
+                font-size: 1.2em;
+                max-width: 90%;
+            }
+        }
+        @media (max-width: 480px) {
+            .message {
+                font-size: 1em;
+                max-width: 95%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="message">
+        <p>
+            <b>"Attention, Traveler!"</b>
+            <br><br>
+            "Your journey has begun. From this point forward, your choices will have significant consequences. A new sidebar has been added to assist you. It will track your progress, including your resources (money, gold, cryptocurrency), attributes (strength, intelligence, energy), and most importantly, the time remaining before the timelines collapse.
+            <br><br>
+            A word of caution: these currencies are not interchangeable. Use them wisely!
+            <br><br>
+            Your bravery has earned you a token of appreciation, you have been granted a small starting fund: +1000 USD, +500 gold coins, and +250 cryptocurrency.
+            <br><br>
+            Light background music has been enabled to enhance your experience. You can disable it at any time by clicking the sound icon in the sidebar.
+            <br><br>
+            May fortune favor you, traveler."
+        </p>
+    </div>
+    <button class="continue-btn" onclick="location.href='Chapter5.html'">Continue</button>
+
+    <audio id="suspense-sound" src="media/orbMusic.mp3" loop></audio>
+
+    <script>
+        window.onload = function() {
+            var audio = document.getElementById('suspense-sound');
+            audio.play();
+            setTimeout(function() {
+                document.querySelector('.message').style.display = 'block';
+                document.querySelector('.continue-btn').style.display = 'inline-block';
+            }, 6000);
+        }
+    </script>
+</body>
+</html>

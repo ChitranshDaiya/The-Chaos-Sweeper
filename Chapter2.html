@@ -5,86 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Chaos Started</title>
 
-    <link rel="stylesheet" href="cssStyle.css">
-    <script src="jsJavaScript.js"></script>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        #enterCode {
-            background-color:black;
-            padding: 30px 50px;
-            border: 2px solid rgb(0, 123, 255);
-            border-radius: 10px;
-            text-align: center;
-            width: 300px;
-        }
-        #enterCode p {
-            color: white;
-            margin-bottom: 20px;
-        }
-        .pinBox {
-            display: inline-block;
-            position: relative;
-            width: 100%;
-            height: 80px;
-            margin-bottom: 20px;
-            background-color: #333;
-            border-radius: 10px;
-            border: 2px solid rgb(0, 123, 255);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .pinEntry {
-            font-size: 2rem;
-            width: 80%;
-            text-align: center;
-            border: 0;
-            outline: none;
-            letter-spacing: 0.5rem;
-            color: #28a745;
-        }
-        .digit-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin-top: 10px;
-        }
-        .digit-buttons button {
-            width: 60px;
-            height: 60px;
-            font-size: 24px;
-            margin: 5px;
-            background-color: rgb(0, 123, 255);
-            color: white;
-            border-radius: 10px;
-        }
-        .submit-btn {
-            margin-top: 20px;
-            padding: 10px 20px;
-            font-size: 16px;
-            background-color: #28a745;
-            color: white;
-            border-radius: 5px;
-        }
-        p#result {
-            margin-top: 20px;
-            font-size: 16px;
-        }
-        input {
-            background: transparent;
-            border: 2px solid midnightblue;
-        }
-        body, html {
-            background-image: linear-gradient(#acf9ff, rgb(243, 135, 135)) ;
-            min-height: 100vh;
-            font-size: x-large;
-            text-indent: 35px;
-        }
-    </style>
+    <link rel="stylesheet" href="startStyle.css">
+    <link rel="stylesheet" href="dialogueStyle.css">
+    <link rel="stylesheet" href="chapter2Style.css">
+    <script src="basicScript.js"></script>
+    <script src="chapter2Script.js"></script>
 </head>
 <body>
     <div id="p1_2">
@@ -255,96 +180,7 @@
         </p>
         <img src="media/explosion.gif" alt="Exploding meme">
         <br>
-        <button onclick="window.location.href = 'Chapter3.html';">Continue</button>
+        <button onclick="changeFile('Chapter3.html');">Continue</button>
     </div>
 </body>
-<script>
-    function getClue(button, value) {
-        var clue = '';
-        var color = '';
-        switch(value) {
-            case '1':
-                clue = 'Clue 1. The prime path I lead, symmetry I guard. Divide my worth, and triumph isn\'t hard.';
-                color = 'green';
-                break;
-            case '2':
-                clue = 'Clue 2. From a genie\'s lamp to curses dark, fate and musketeers leave their mark.';
-                color = 'green';
-                break;
-            case '3':
-                clue = 'Clue 3. Olympic rings abound, a hand\'s full band. Your senses stay sharp in a weekend-less land.';
-                color = 'green';
-                break;
-            case '4':
-                clue = 'Clue 4. In races won, I\'m the ace you find, in binary’s realm, I lead the kind.';
-                color = 'green';
-                break;
-            default:
-                clue = 'There\'s nothing here, should try somewhere else.';
-                color = 'red';
-        }
-        button.textContent = clue;
-        button.style.backgroundColor = color;
-        button.disabled = true;
-    }
-    function enterDigit(digit) {
-        const pinInput = document.getElementById('pinInput');
-        if (pinInput.value.length < 4) {
-            pinInput.value += digit;
-        }
-    }
-    function deleteLastDigit() {
-        const pinInput = document.getElementById('pinInput');
-        pinInput.value = pinInput.value.slice(0, -1);
-    }
-    function checkCode() {
-        const code = document.getElementById('pinInput').value;
-        if (code === "2351") {
-            showScreen('#enterCode', '#p2_2')
-        } else {
-            document.getElementById('result').innerText = "Incorrect code. Please try again.";
-            document.getElementById('result').style.color = "#ff0000"; 
-        }
-    }
-    function checkLength() {
-        const pinInput = document.getElementById('pinInput');
-        if (pinInput.value.length > 4) {
-            pinInput.value = pinInput.value.slice(0, 4);
-        }
-    }
-    function handleKeyDown(event) {
-        const pinInput = document.getElementById('pinInput');
-        if (event.key === "Backspace" && pinInput.value.length > 0) {
-            deleteLastDigit();
-            event.preventDefault();
-        } else if (!/[0-9]/.test(event.key) && event.key !== "Backspace") {
-            event.preventDefault();
-        }
-    }
-
-    let selectedOptions = {};
-    function selectOption(step, option) {
-        selectedOptions[step] = option;
-        if (step < 5) {
-            document.getElementById(`step${step + 1}`).style.display = 'block';
-        } else {
-            document.getElementById('submitBtn').style.display = 'block';
-        }
-    }
-    function checkCombination() {
-        const correctCombination = ['C', 'D', 'B', 'C', 'A'];
-        let isCorrect = true;
-        for (let i = 1; i <= 5; i++) {
-            if (selectedOptions[i] !== correctCombination[i - 1]) {
-                isCorrect = false;
-                break;
-            }
-        }
-        if (isCorrect) {
-            showScreen('#p3_2', '#whyCorrect');
-        } else {
-            showScreen('#p3_2', '#p4_2');
-        }
-    }
-</script>
 </html>

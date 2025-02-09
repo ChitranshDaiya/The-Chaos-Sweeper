@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Bridge of Evermore</title>
+
+    <script src="basicScript.js"></script>
+    <script src="sidebarScript.js"></script>
+    <link rel="stylesheet" href="dialogueStyle.css">
+    <link rel="stylesheet" href="secondStyle.css">
+    <link rel="stylesheet" href="sidebarStyle.css">
+    <link rel="stylesheet" href="titleStyle.css">
+    <style>
+        body, html {
+            background-image: url('media/highway.png');
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar" id="mySidebar">
+        <!-- <button id="back-btn">&larr;</button>
+        <button id="next-btn">&rarr;</button> -->
+        <button id="close-btn" onclick="closeSidebar()">&langle;</button>
+        <br>
+        <img src="media/chaosLogo.png" alt="The Chaos Sweeper" style="height: 100px; width: 200px;">
+        <hr>
+        <p><b>Time: </b><span id="time"></span></p>
+        <p><b>Energy: </b><span id="energy"></span></p>
+        <p><b>Gold Coin: </b><span id="moneyPast"></span></p>
+        <p><b>Cash: </b><span id="moneyPresent"></span></p>
+        <p><b>Bit Coins: </b><span id="moneyFuture"></span></p>
+        <p><b>Strength: </b><span id="strength"></span></p>
+        <p><b>Intelligence: </b><span id="intelligence"></span></p>
+    </div>
+    <button id="open-btn" onclick="openSidebar()">&rangle;</button>
+
+    <div class="chapterTitle">
+        <header>
+            <h2>New Chapter <br> The Highway</h2>
+            <img src="media/The Chaos Sweeper.png" alt="Title Image" class="titleImg">
+            <br>
+            <button onclick="showScreen('.chapterTitle', '#p1_bE')">Start</button>
+        </header>
+    </div>
+
+    <div id="p1_bE" style="display: none;">
+        <p>
+            You decide to head toward the Bridge of Evermore. After all, it’s the only place with a name that doesn’t sound like a deathtrap. But walking? Nah, that’s not your style. You need a cab or something equally fancy.
+        </p>
+        <div class="playerDialogue">
+            I have no intention of walking. Must find a cab or something.
+        </div>
+        <p>
+            Just as you finish that thought, a bright yellow cab zooms toward you and you wave it down like you’re auditioning for a role in a movie about desperate taxi hailing. The cab screeches to a halt right in front of you.
+        </p>
+        <img src="media/cab.png" alt="Zippy the cab" class="centerImg">
+        <div class="cabDialogue">
+            Yo, man! Need a ride?
+        </div>
+        <div class="playerDialogue">
+            Whoa! I can’t believe I just met Bumblebee in real life!
+        </div>
+        <div class="cabDialogue">
+            Bumblebee? Who’s that? I ain’t no Bumblebee! I’m Zippy, the professional taxi.
+        </div>
+        <div class="playerDialogue">
+            Oh, is that so? Alright, Zippy the professional taxi, can you give me a lift to the Bridge of Evermore?
+        </div>
+        <button onclick="showScreen('#p1_bE', '#p2_bE')">Continue</button>
+    </div>
+    <div id="p2_bE" style="display: none;">
+        <p>
+            Zippy bursts into laughter, the kind that makes you question your life choices.
+        </p>
+        <div class="cabDialogue">
+            Do I look like a charity worker to you, man? I’m a taxi! I charge for my services. And for the Bridge of Evermore? That’ll be 500 bucks, cash.
+        </div>
+        <div class="playerDialogue">
+            C’mon, man. Don’t you think that’s a bit steep for a sweet cab like you?
+        </div>
+        <p>
+            Zippy’s windshield flickers, and a holographic map pops up in front of you. The route is insanely long.
+        </p>
+        <div class="cabDialogue">
+            Look at this, man. It’s at least a 10-hour ride. So I ain’t talking no less than 500 bucks. And don’t try to butter me up—I’m already yellow.
+        </div>
+        <div class="playerDialogue">
+            How about this? 400 bucks cash, and you can pick up someone else too?
+        </div>
+        <p>
+            Zippy ponders for a moment, his digital gears visibly turning.
+        </p>
+        <div class="cabDialogue">
+            Alright, deal. But don’t puke—I charge extra for that. Now hop in.
+        </div>
+        <button onclick="showScreen('#p2_bE', '#p3_bE')">The ride</button>
+    </div>
+    <div id="p3_bE" style="display: none;">
+        <p>
+            You climb into the cab and settle in the backseat. So far, so good. And honestly, things aren’t too weird. Just an Autobot—or maybe a Decepticon—driving you around.
+        </p>
+        <div class="cabDialogue">
+            Hey, Mr. Do you want some entertainment? I got options!
+        </div>
+        <button class="entertainment" onclick="document.querySelectorAll('.entertainment').forEach(button => button.style.display = 'none'); changeValue('energy', 10, '+')">Music(+10 Energy)</button>
+        <br>
+        <button class="entertainment" onclick="document.querySelectorAll('.entertainment').forEach(button => button.style.display = 'none'); changeValue('Intelligence', 10, '+')">News(+10 Intelligence)</button>
+        <br>
+        <button class="entertainment" onclick="document.querySelectorAll('.entertainment').forEach(button => button.style.display = 'none'); changeValue('strength', 10, '+')">Workout tips(+10 Strength)</button>
+        <br>
+        <button class="entertainment" onclick="document.querySelectorAll('.entertainment').forEach(button => button.style.display = 'none');">No Thanks, I Like the Sound of the Engine</button>
+        <p>
+            You’re enjoying the ride when suddenly, Zippy slams on the brakes.
+        </p>
+        <div class="cabDialogue">
+            (To a samurai who just appeared out of nowhere) Hey there, sir! Need a ride?
+        </div>
+        <p>
+            The samurai turns, his sharp eyes glancing over the cab before settling on you.
+        </p>
+        <img src="media/samurai.png" alt="Samurai" class="centerImg">
+        <div class="samuraiDialogue">
+            Well, well. Aren’t you Zippy? Heard a lot about you. And who’s this gentleman in the back?
+        </div>
+        <div class="cabDialogue">
+            Oh, him? No clue. Some weirdo, I guess. Anyway, hop in.
+        </div>
+        <button onclick="showScreen('#p3_bE', '#p4_bE')">Continue</button>
+    </div>
+    <div id="p4_bE" style="display: none;">
+        <p>
+            You swear you see a tiny grin flicker across the samurai’s face as he slides into the seat beside you. The cab rolls forward again.
+        </p>
+        <div class="samuraiDialogue">
+            So, traveler. New around here?
+        </div>
+        <div class="playerDialogue">
+            Yep! completely new. But hopefully, I won’t take too long. Maybe three days, tops.
+        </div>
+        <div class="samuraiDialogue">
+            Oh? Must be here on important business. Perhaps I can assist?
+        </div>
+        <div class="playerDialogue">
+            No thanks, brother. I got this… (whispers) maybe.
+        </div>
+        <p>
+            The samurai frowns for a moment. Something about him feels off.
+        </p>
+        <div class="samuraiDialogue">
+            You know, sudden changes can be disorienting.
+        </div>
+        <div class="playerDialogue">
+            Sudden… changes?
+        </div>
+        <div class="samuraiDialogue">
+            Yes. You’ve seen things shifting around here, haven’t you? Strange occurrences? Unexplainable events? Maybe you’d like to talk about it?
+        </div>
+        <p>
+            Okay, now you’re convinced he knows something about the chaos. But instead of pushing the conversation, you decide to keep your lips zipped. You pretend to yawn and drift into sleep.
+        </p>
+        <button onclick="showScreen('#p4_bE', '#p5_bE')">The voice</button>
+    </div>
+    <div id="p5_bE" style="display: none;">
+        <p>
+            Your eyes snap open as you hear the samurai’s panicked voice.
+        </p>
+        <div class="samuraiDialogue">
+            (frantic) I’m begging you! Don’t take the highway! Take the dirt road! Unless you want your body riddled with holes!
+        </div>
+        <p>
+            You groggily look ahead. A massive, swirling orange portal has opened up, and marching through it is… wait, is that an army of chickens with guns?!
+        </p>
+        <div class="cabDialogue">
+            Sir, this detour will take longer. Damn those little animals!
+        </div>
+        <p>
+            The cab veers off-road, narrowly avoiding the poultry militia.
+        </p>
+        <div class="playerDialogue">
+            Alright, I officially have no idea what’s happening anymore.
+        </div>
+        <p>
+            Just as you start feeling safe again, the ground trembles. A massive ostrich stomps onto the road, blocking your path. <br> The samurai instantly reaches for his katana, his eyes locking onto you.
+        </p>
+        <div class="samuraiDialogue">
+            Here, take this! I can’t handle that thing alone!
+        </div>
+        <p>
+            He tosses you a gleaming sword. You grip it tightly. <br> Well. This is happening.
+            <br> You step out of the cab. Brave? Stupid? Maybe both. But one thing’s for sure—you’re about to fight a giant bird.
+        </p>
+        <button onclick="changeFile('Loading.html')">The fight</button>
+    </div>
+</body>
+</html>

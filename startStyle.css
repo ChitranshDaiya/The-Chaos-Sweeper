@@ -1,0 +1,25 @@
+input {
+    background: transparent;
+    border: 2px solid midnightblue;
+}
+body, html {
+    background-image: linear-gradient(#acf9ff, rgb(243, 135, 135)) ;
+    min-height: 100vh;
+    font-size: x-large;
+    text-indent: 35px;
+}
+button {
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 15px;
+    background-color: #007bff;
+    color: white;
+    margin: 10px;
+    cursor: pointer;
+}
+header {
+    text-align: center;
+    font-size: xx-large;
+    font-variant: small-caps ;
+    font-style: oblique;
+}

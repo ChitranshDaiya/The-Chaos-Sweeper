@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mystic Forest</title>
+
+    <script src="basicScript.js"></script>
+    <script src="sidebarScript.js"></script>
+    <link rel="stylesheet" href="dialogueStyle.css">
+    <link rel="stylesheet" href="secondStyle.css">
+    <link rel="stylesheet" href="sidebarStyle.css">
+    <link rel="stylesheet" href="titleStyle.css">
+    <style>
+        body, html {
+            background-image: url('media/forest.png');
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar" id="mySidebar">
+        <!-- <button id="back-btn">&larr;</button>
+        <button id="next-btn">&rarr;</button> -->
+        <button id="close-btn" onclick="closeSidebar()">&langle;</button>
+        <br>
+        <img src="media/chaosLogo.png" alt="The Chaos Sweeper" style="height: 100px; width: 200px;">
+        <hr>
+        <p><b>Time: </b><span id="time"></span></p>
+        <p><b>Energy: </b><span id="energy"></span></p>
+        <p><b>Gold Coin: </b><span id="moneyPast"></span></p>
+        <p><b>Cash: </b><span id="moneyPresent"></span></p>
+        <p><b>Bit Coins: </b><span id="moneyFuture"></span></p>
+        <p><b>Strength: </b><span id="strength"></span></p>
+        <p><b>Intelligence: </b><span id="intelligence"></span></p>
+    </div>
+    <button id="open-btn" onclick="openSidebar()">&rangle;</button>
+
+    <div class="chapterTitle">
+        <header>
+            <h2>New Chapter <br> The Mystic Forest</h2>
+            <img src="media/The Chaos Sweeper.png" alt="Title Image" class="titleImg">
+            <br>
+            <button onclick="showScreen('.chapterTitle', '#p1_mF')">Start</button>
+        </header>
+    </div>
+
+    <div id="p1_mF" style="display: none;">
+        <p>
+            The world around you shimmers as you make your choice. The other paths fade away, leaving only a narrow, winding trail ahead—dark, mysterious, and just the right amount of eerie. You take a deep breath.
+        </p>
+        <div class="thoughtDialogue">
+            Alright, Mystic Forest it is. Maybe I’ll stumble upon something great—like Little Red Riding Hood, or the house where Goldilocks had her infamous trespassing incident. That would be fun. But… how do I actually get there? I don’t want to walk.
+        </div>
+        <p>
+            As if on cue, a rhythmic clop-clop-clop echoes from the distance. You turn your head just in time to see a horse trotting toward you, looking oddly determined.
+        </p>
+        <img src="media/horse.png" alt="Horse" class="centerImg">
+        <p>
+            He stops right in front of you, tilts his head, and—oh, good. The horse can talk. Because why wouldn’t it?
+        </p>
+        <div class="horseDialogue">
+            Hey there, Mr. Janitor. Are you on your way to save us all? I can't stand those flying cars taking away all my customers.
+        </div>
+        <div class="playerDialogue">
+            Wait, you know me? Seems like I’m getting famous around here. But—hold on, what customers?
+        </div>
+        <div class="horseDialogue">
+            I used to be the best riding horse around. Until those evil flying cars showed up and ruined my business. People used to love riding horses. Now? They just hop into their little metal boxes and whoosh—off they go!
+        </div>
+        <p>
+            The horse dramatically mimics a car zooming past.
+        </p>
+        <div class="playerDialogue">
+            Sounds rough. But hey, if you’re a riding horse, I could really use a ride. I can pay you.
+        </div>
+        <div class="horseDialogue">
+            Pay me? PAY ME?! Hah! My dear janitor, I don’t need your money. I need justice! And since you seem to be on some grand quest, I’ll consider this public service.
+        </div>
+        <p>
+            He gestures gallantly with his hoof.
+        </p>
+        <div class="horseDialogue">
+            Hop on, tell me the path, and let’s ride!
+        </div>
+        <p>
+            You shrug, mount the horse, and point down the eerie path ahead.
+        </p>
+        <div class="playerDialogue">
+            Straight into the Mystic Woods!
+        </div>
+        <button onclick="showScreen('#p1_mF', '#p2_mF')">Continue</button>
+    </div>
+    
+    <div id="p2_mF" style="display: none;">
+        <p>
+            With that, the horse gallops forward, carrying you into the depths of the twisting, whispering forest. At first, the ride is smooth. The trees rustle as if watching you, but nothing seems too unusual. Then, slowly, the forest starts to shift.
+        </p>
+        <p>
+            The trees stretch, twist, and rearrange themselves when you’re not looking. Paths appear and disappear. Shadows dart between the branches. Within minutes, you're completely, utterly lost.
+        </p>
+        <div class="horseDialogue">
+            (Slowing down) So… uh, which way were we going?
+        </div>
+        <div class="playerDialogue">
+            I don’t know, man—I mean, horse. The woods are really living up to their name. The trees are moving, the paths keep shifting… I’m pretty sure we’ve passed that same weirdly-shaped rock three times now.
+        </div>
+        <p>
+            The horse sighs.
+        </p>
+        <div class="horseDialogue">
+            Great. Stuck in a mysterious forest. And I bet none of those flying cars have to deal with this.
+        </div>
+        <p>
+            Before you can respond, a shrill laugh echoes through the trees. It bounces from branch to branch, making it impossible to tell where it’s coming from.
+        </p>
+        <div class="playerDialogue">
+            Uh… was that you?
+        </div>
+        <div class="horseDialogue">
+            Do I look like I’d laugh like that?
+        </div>
+        <button onclick="showScreen('#p2_mF', '#p3_mF')">Who was it?</button>
+    </div>
+    
+    <div id="p3_mF" style="display: none;">
+        <p>
+            Before you can argue, a shimmering, ghostly figure materializes in front of you. It hovers, grinning mischievously, eyes glowing like tiny lanterns.
+        </p>
+        <img src="media/ghost.png" alt="Ghost" class="centerImg">
+        <div class="ghostDialogue">
+            Ah-ha! A lost traveler and his trusty steed! You know what that means?
+        </div>
+        <div class="playerDialogue">
+            Uh… free maps?
+        </div>
+        <div class="ghostDialogue">
+            No, fool! It means a test. One question and a single chance. Answer correctly, and I shall grant you safe passage. Answer wrongly… and I shall haunt you forever!
+        </div>
+        <p>
+            The wind howls dramatically as if nature itself is in on the joke.
+        </p>
+        <div class="horseDialogue">
+            Okay, buddy. No pressure, but I really don’t want to deal with ghostly whispers in my ears for eternity.
+        </div>
+        <div class="playerDialogue">
+            Fine, let’s hear it. But no spoilers if I’ve heard this one before.
+        </div>
+        <button onclick="showScreen('#p3_mF', '#p4_mF')">The question</button>
+    </div>
+    
+    <div id="p4_mF" style="display: none;">
+        <p>
+            The ghost clears his throat—or whatever ghosts do—conjuring a swirling mist, and in the mist, you see vague images—figures moving, voices whispering. The scene begins to take shape.
+        </p>
+        <img src="media/worriorsMist.png" alt="warriors" class="centerImg">
+        <p>
+            The mist solidifies into an image of two warriors, standing on opposite sides of a battlefield. One wields a gleaming silver sword, reflecting the sunlight so brightly it almost blinds you. The other wields a dull, rusted blade, worn from years of battle.
+        </p>
+        <div class="ghostDialogue">
+            (narrating) Two warriors face each other. One with a blade of the finest silver, untarnished, unbroken, never used. The other wields a blade old and chipped, one that has fought countless battles and tasted victory and defeat alike.
+        </div>
+        <p>
+            The ghost's voice turns deep and mysterious.
+        </p>
+        <div class="ghostDialogue">
+            Now tell me, traveler... Between these two warriors, who is the stronger one?
+        </div>
+        <p>
+            You stare at the swirling mist, watching the warriors remain frozen in their standoff. The forest holds its breath. Even the horse seems interested—though he might just be trying to avoid making eye contact with the ghost.
+        </p>
+        <div class="playerDialogue">
+            Alright, let me think…
+        </div>
+        <p>
+            Before you can answer, the ghost suddenly says,
+        </p>
+        <div class="ghostDialogue">
+            Oh, by the way, I’ll need to stay with you both. So, excuse me—
+        </div>
+        <button onclick="showScreen('#p4_mF', '#p5_mF')">Huh?</button>
+    </div>
+    
+    <div id="p5_mF" style="display: none;">
+        <p>
+            Before either of you can react, the ghost dives straight into the horse’s body. The horse shudders, eyes bulging. Then—horrifyingly—his nostrils stretch like rubber, and the ghost’s face pops out from them.
+        </p>
+        <div class="horseDialogue">
+            (now with a ghostly nose-extension) Well, this is awkward. I don’t like it.
+        </div>
+        <div class="playerDialogue">
+            OH NO. WHY. WHY WOULD YOU DO THAT?!
+        </div>
+        <div class="ghostDialogue">
+            (grinning through the horse's nostrils) Well, now we’re all one happy traveling party! Answer my question first, then we shall proceed!
+        </div>
+        <p>
+            The ghost, still protruding from the horse’s nostrils, grins widely, waiting for your answer. The horse snorts, trying to shake the ghost out, but the ghost holds firm.
+        </p>
+        <div class="playerDialogue">
+            (thinking) Okay, let’s break this down. This ghost clearly has too much free time. The horse is being haunted by his nostrils, and I’m standing in a shape-shifting forest discussing weird tales. How did my life come to this?
+        </div>
+        <button onclick="changeFile('forestMaze.html')">The one with the old sword</button>
+        <br>
+        <button onclick="changeFile('forestMaze.html')">The one with the new sword</button>
+        <br>
+        <button onclick="showScreen('#p5_mF', '#showPath')">None of them</button>
+        <br>
+        <button onclick="changeFile('forestMaze.html')">Both of them</button>
+    </div>
+
+    <div id="showPath" style="display: none;">
+        <div class="playerDialogue">
+            Neither is the strongest.
+        </div>
+        <p>
+            The ghost narrows his eyes.
+        </p>
+        <div class="ghostDialogue">
+            Explain yourself, <span class="pName"></span>.
+        </div>
+        <div class="playerDialogue">
+            Strength isn’t just about the weapon you wield. It’s about the heart, the mind, and the choices you make. A shiny sword doesn’t guarantee victory, and an old blade can’t fight if the warrior lacks will. True strength comes from within.
+        </div>
+        <p>
+            The ghost gasps so loudly that a few nearby trees shake. The mist dissolves instantly.
+        </p>
+        <div class="ghostDialogue">
+            BY THE GREAT SPIRITS OF THE AFTERLIFE—YOU HAVE BESTED ME!
+        </div>
+        <p>
+            Lightning crackles overhead. The forest rumbles. The horse flinches.
+        </p>
+        <div class="horseDialogue">
+            Okay, I swear if another ghost tries to live in my nose, I’m retiring.
+        </div>
+        <p>
+            But instead of looking defeated, the ghost beams at you. He hovers closer and places a hand over his chest in an oddly noble gesture.
+        </p>
+        <div class="ghostDialogue">
+            Traveler… No, <span class="pName"></span>… No, oh Wise One! You have proven your wit and wisdom beyond measure. You shall pass freely through the Mystic Forest.
+        </div>
+        <button onclick="changeFile(Loading.html)">Continue</button>
+    </div>
+</body>
+</html>

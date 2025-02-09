@@ -1,0 +1,148 @@
+body {
+    background-image: linear-gradient(purple, #F98294);
+    min-height: 100vh;
+    box-sizing: border-box;
+    padding: 10px;
+}
+#gameScreen {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+#diceArea {
+    border: 5px solid black;
+    background-color: rgb(64, 255, 106);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    max-width: 300px;
+    align-items: center;
+    justify-items: center;
+    padding: 10px;
+}
+#tower {
+    padding: 15px;
+    background-color: #d9fd62;
+    border: 5px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    max-width: 300px;
+    margin: 10px;
+}
+.towerspot {
+    display: block;
+    background-color: aqua;
+    border: 3px solid black;
+    height: 30px;
+    margin: 3px auto;
+    text-align: center;
+    font-weight: bold;
+    width: calc(100% - (5% * var(--level)));
+    max-width:300px; /* Adjust as needed */
+}
+@media (max-width: 600px) {
+    body {
+        flex-direction: column;
+        align-items: center;
+    }
+    #diceArea, #tower {
+        max-width: 90%;
+    }
+}
+.diceNumber {
+    background-color: cornsilk;
+    border: 2px solid black;
+    padding: 5px;
+    height: 30px;
+    width: 30px;
+    text-align: center;
+    font-weight: bold;
+}
+button {
+    padding: 10px;
+    font-size: 15px;
+    background-color: #007bff;
+    color: white;
+    margin: 10px;
+    cursor: pointer;
+    grid-column: span 2;
+}
+.glow {
+    background-color: yellow;
+}
+#result, #computer-choice {
+    margin-top: 30px;
+    font-size: 28px;
+    font-weight: bold;
+}
+#computer-choice {
+    margin-top: 10px;
+    font-size: 22px;
+    color: #555;
+}
+#maze {
+    display: grid;
+    grid-template-columns: repeat(10, 30px);
+    grid-template-rows: repeat(10, 30px);
+    gap: 1px;
+    background-color: #333;
+    margin-bottom: 20px; /* Added margin */
+}
+.cell {
+    width: 30px;
+    height: 30px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+}
+.player {
+    background-color: red;
+}
+.wall {
+    background-color: black;
+}
+.end {
+    background-color: blue; /* End point */
+}
+#task5message {
+    margin-top: 20px; /* Added margin for message */
+    font-size: 20px;
+    color: green;
+}
+#task8game {
+    display: flex;
+    margin: 20px;
+}
+
+.color {
+    width: 120px;
+    height: 120px;
+    margin: 10px;
+    opacity: 0.6;
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+#red {
+    background-color: red;
+}
+#green {
+    background-color: green;
+}
+#blue {
+    background-color: blue;
+}
+#yellow {
+    background-color: yellow;
+}
+#tasks-container {
+    background-color: pink;
+    border: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    margin: 10px;
+}

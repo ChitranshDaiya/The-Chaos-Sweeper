@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tower Mystery</title>
+
+    <link rel="stylesheet" href="towerMysteryStyle.css">
+
+</head>
+<body>
+    <div id="gameScreen">
+        <div id="diceArea">
+            <span id="num1" class="diceNumber">1</span>
+            <span id="num2" class="diceNumber">2</span>
+            <span id="num3" class="diceNumber">3</span>
+            <span id="num4" class="diceNumber">4</span>
+            <span id="num5" class="diceNumber">5</span>
+            <span id="num6" class="diceNumber">6</span>
+            <span id="num7" class="diceNumber">7</span>
+            <span id="num8" class="diceNumber">8</span>
+            <button id="spinButton" onclick="spin()">Spin</button>
+        </div>
+
+        <div id="tower">
+            <span id="spot16" class="towerspot" style="--level: 16;">Finish</span>
+            <span id="spot15" class="towerspot" style="--level: 15;">15</span>
+            <span id="spot14" class="towerspot" style="--level: 14;">14</span>
+            <span id="spot13" class="towerspot" style="--level: 13;">13</span>
+            <span id="spot12" class="towerspot" style="--level: 12;">12</span>
+            <span id="spot11" class="towerspot" style="--level: 11;">11</span>
+            <span id="spot10" class="towerspot" style="--level: 10;">10</span>
+            <span id="spot9" class="towerspot" style="--level: 9;">9</span>
+            <span id="spot8" class="towerspot" style="--level: 8;">8</span>
+            <span id="spot7" class="towerspot" style="--level: 7;">7</span>
+            <span id="spot6" class="towerspot" style="--level: 6;">6</span>
+            <span id="spot5" class="towerspot" style="--level: 5;">5</span>
+            <span id="spot4" class="towerspot" style="--level: 4;">4</span>
+            <span id="spot3" class="towerspot" style="--level: 3;">3</span>
+            <span id="spot2" class="towerspot" style="--level: 2;">2</span>
+            <span id="spot1" class="towerspot" style="--level: 1;">1</span>
+            <span id="spot0" class="towerspot" style="--level: 0;">Start</span>
+        </div>
+    </div>
+
+    <div id="tasks-container">
+        <div id="task1" style="display: none;">
+            <h3>Rock Paper Scissors</h3>
+            <button onclick="playRPC('rock')">Rock</button>
+            <button onclick="playRPC('paper')">Paper</button>
+            <button onclick="playRPC('scissors')">Scissors</button>
+    
+            <div id="computer-choice"></div>
+            <div id="task1result"></div>
+            <button id="t1enableSpin" class="enableSpin" style="display: none;">Spin Again</button>
+        </div>
+        
+        <div id="task2" style="display: none;">
+            <h3>Guess the Number</h3>
+            <p>Guess a number between 1 and 25:</p>
+            <input type="range" id="guess" min="1" max="25" style="width: 80vw; max-width: 400px;">
+            <p>Your guess: <span id="guessValue">13</span></p>
+            <button onclick="checkNumberGuess()">Submit Guess</button>
+            <div id="task2result"></div>
+            <button id="t2enableSpin" class="enableSpin" style="display: none;">Spin Again</button>
+        </div>
+    
+        <div id="task3" style="display: none;">
+            <h3>Jumbled Sentence Game</h3>
+            <div id="jumbled-sentence"></div>
+            <input type="text" id="task3input" placeholder="Guess the sentence">
+            <button onclick="task3checkAnswer()">Submit</button>
+            <div id="task3result"></div>
+            <button id="t3enableSpin" class="enableSpin" style="display: none;">Spin Again</button>
+        </div>
+    
+        <div id="task4" style="display: none;">
+            <h3>Congratulations, you dont have any task to do.</h3>
+            <button class="enableSpin">Spin Again</button>
+        </div>
+    
+        <div id="task5" style="display: none;">
+            <h3>The maze solver</h3>
+            <div id="maze"></div>
+            <div>
+                <button onclick="move('up')">&uarr;</button>
+                <button onclick="move('down')">&darr;</button>
+                <button onclick="move('left')">&larr;</button>
+                <button onclick="move('right')">&rarr;</button>
+            </div>
+            <div id="task5message"></div>
+            <button id="t5enableSpin" class="enableSpin" style="display: none;">Spin Again</button>
+        </div>
+    
+        <div id="task6" style="display: none;">
+            <h3>Trivia Quiz</h3>
+            <div id="quiz"></div>
+            <button onclick="task6checkAnswer()">Submit Answer</button>
+            <div id="result"></div>
+            <button id="t6enableSpin" class="enableSpin" style="display: none;">Spin Again</button>
+        </div>
+    
+        <div id="task8" style="display: none;">
+            <h3>Simon Says</h3>
+            <div id="task8game">
+                <div class="color" id="red"></div>
+                <div class="color" id="green"></div>
+                <div class="color" id="blue"></div>
+                <div class="color" id="yellow"></div>
+            </div>
+            <button id="task8start">Start Game</button>
+            <h4 id="task8message"></h4>
+            <button id="t8enableSpin" class="enableSpin" style="display: none;">Spin Again</button>
+        </div>
+    
+        <div id="task9" style="display: none;">
+            <p>Congratulations, you completed the game.</p>
+            <button onclick="window.location.href='clockworkLane.html?section=p3_cL'">Continue</button>
+        </div>
+    </div>
+</body>
+<script src="towerMysteryScript.js"></script>
+</html>

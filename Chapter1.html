@@ -5,20 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Starting the Game</title>
 
-    <link rel="stylesheet" href="cssStyle.css">
-    <script src="jsJavaScript.js"></script>
-    <style>
-        input {
-            background: transparent;
-            border: 2px solid midnightblue;
-        }
-        body, html {
-            background-image: linear-gradient(#acf9ff, rgb(243, 135, 135)) ;
-            min-height: 100vh;
-            font-size: x-large;
-            text-indent: 35px;
-        }
-    </style>
+    <script src="basicScript.js"></script>
+    <link rel="stylesheet" href="titleStyle.css">
+    <link rel="stylesheet" href="dialogueStyle.css">
+    <link rel="stylesheet" href="startStyle.css">
 </head>
 <body>
     <div class="chapterTitle">
@@ -142,9 +132,7 @@
 
         <button id="EnterE9God" onclick="showScreen('#EnterE9God', '.godDialogue')">Don't enter E-9</button>
         <br>
-        <a href="Chapter2.html">
-            <button onclick="">Let's Check E-9</button>
-        </a>
+        <button onclick="changeFile('Chapter2.html')">Let's Check E-9</button>
     </div>
 </body>
 </html>

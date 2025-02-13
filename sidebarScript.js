@@ -18,14 +18,6 @@ function closeSidebar() {
     document.getElementById('open-btn').style.display = 'inline-flex';
 }
 
-var time = parseInt(sessionStorage.getItem('time')) || 4320;
-var energy = parseInt(sessionStorage.getItem('energy')) || 100;
-var goldCoin = parseInt(sessionStorage.getItem('goldCoin')) || 500;
-var cash = parseInt(sessionStorage.getItem('cash')) || 1000;
-var bitCoin = parseInt(sessionStorage.getItem('bitCoin')) || 250;
-var strength = parseInt(sessionStorage.getItem('strength')) || 20;
-var intelligence = parseInt(sessionStorage.getItem('intelligence')) || 35;
-
 function updateValues() {
     sessionStorage.setItem('time', time);
     sessionStorage.setItem('energy', energy);
@@ -59,7 +51,6 @@ function navigate(url, button, value) {
         if(value.moneyPresent) cash -= value.moneyPresent;
         if(value.moneyFuture) bitCoin -= value.moneyFuture;
 
-        updateValues();
         location.href = url;
     } else {
         button.innerText = "Not enough resources";
@@ -75,4 +66,9 @@ function changeValue(attribute, value, op) {
     }
     
     updateValues();
+}
+
+function changeVolume(volume) {
+    var audio = document.getElementById('bgMusic');
+    audio.volume = volume;
 }

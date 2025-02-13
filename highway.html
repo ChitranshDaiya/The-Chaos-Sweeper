@@ -32,6 +32,7 @@
         <p><b>Bit Coins: </b><span id="moneyFuture"></span></p>
         <p><b>Strength: </b><span id="strength"></span></p>
         <p><b>Intelligence: </b><span id="intelligence"></span></p>
+        <p>&#x1F56C;<input type="range" id="volumeSlider" min="0" max="1" step="0.01" value="0.5" oninput="changeVolume(this.value)"></p>
     </div>
     <button id="open-btn" onclick="openSidebar()">&rangle;</button>
 
@@ -192,5 +193,16 @@
         </p>
         <button onclick="changeFile('Loading.html')">The fight</button>
     </div>
+
+    <audio id="bgMusic" src="media/highway_BG.mp3" autoplay loop></audio>
 </body>
+<script>
+    var time = 3600;
+    var energy = 50;
+    var bitCoin = 250;
+    var cash = 1000;
+    var goldCoin = 500;
+    var strength = 20;
+    var intelligence = 35;
+</script>
 </html>
